@@ -1,6 +1,11 @@
 'use client';
 
-import { AlertTriangle, ShieldAlert, UserCheck, TrafficCone } from 'lucide-react';
+import {
+  AlertTriangle,
+  ShieldAlert,
+  UserCheck,
+  TrafficCone,
+} from 'lucide-react';
 import Tag from './Tag';
 import { JSX } from 'react';
 
@@ -45,7 +50,7 @@ const incidents: Incident[] = [
 
 export default function IncidentList() {
   return (
-    <aside className="w-full md:w-72 bg-gray-900 border-l border-gray-800 p-4 space-y-4 overflow-y-auto">
+    <aside className="w-full md:w-72 max-h-[80vh] md:max-h-screen bg-gray-900 border-t md:border-t-0 md:border-l border-gray-800 p-4 space-y-4 overflow-y-auto rounded-b-lg md:rounded-none">
       <h2 className="text-lg font-semibold text-white mb-2">Incidents</h2>
       {incidents.map((incident) => (
         <div
@@ -55,7 +60,9 @@ export default function IncidentList() {
           <div className="flex items-center gap-2">
             {incident.icon}
             <div className="flex flex-col">
-              <span className="text-sm text-white">{incident.type}</span>
+              <span className="text-sm text-white truncate w-32 sm:w-40">
+                {incident.type}
+              </span>
               <span className="text-xs text-gray-400">{incident.time}</span>
             </div>
           </div>
